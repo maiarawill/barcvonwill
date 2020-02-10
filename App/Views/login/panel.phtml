@@ -1,0 +1,42 @@
+<?php
+    session_start();
+    if($_SESSION['loginOK'] == 'OLOGINESTAOK'){ ?>
+    <div class="container"><!--Container -->
+    <div class="row"><!--Row -->
+        <div class="col-sm-8 m-auto"><!--col-sm8 -->
+
+            <div class="my-3 text-dark text-center h1 font-weight-bold">
+                Adicionar Projeto
+            </div>
+
+            <div class="text-dark h3 font-weight-bold">
+                <form action="/addProjeto" method="POST">
+                    
+                    <div class="form-group border border-dark rounded p-2 my-2">
+                        <div class="text-center my-2">Titulo do projeto</div>
+                        <input name="titulo" type="text" class="form-control">
+                        <div class="text-center my-2">Descrição</div>
+                        <textarea name="descricao" type="textarea" class="form-control my-2"></textarea>
+                        <div class="text-center my-2">Tipo de projeto</div>
+                            <select style="text-align-last: center" name="tipo" class="form-control my-2 text-center">
+                                <option class="" value="1">Canva</option>
+                                <option value="2">WebSite</option>
+                                <option value="3">Propaganda</option>
+                                <option value="4">Service ou Script</option>
+                            </select>
+                        
+                            <div class="mt-4 text-center">
+                                <button type="submit" class="btn btn-outline-primary">Publicar</button>
+                            </div>
+                    </div>
+
+                    
+
+                </form>
+            </div> 
+
+        </div>
+    </div>
+    </div>
+    <?php }else{
+    header('Location:/');} ?>

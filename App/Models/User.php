@@ -22,7 +22,7 @@
 
         //salvar
         public function salvar(){
-            $query = "insert into usuarios(id,nome,email,login,senha) values(:nome, :email, :login, :senha)";
+            $query = "insert into usuarios(nome, email, login, senha) values( :nome , :email , :login , :senha )";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':nome', $this->__get('nome'));
             $stmt->bindValue(':email', $this->__get('email'));
@@ -41,15 +41,16 @@
         //autenticar
 
         public function autenticar(){
-            $query = "select id, nome, email, login, senha from usuarios where login = :login and senha = :senha ";
+            $query = "select nome from usuarios where login = :login and senha = :senha ";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':login', $this->__get('login'));
             $stmt->bindValue(':senha', $this->__get('senha'));
             $stmt->execute();
 
             $usuario = $stmt->fetch(\PDO::FETCH_ASSOC);
-
+            
             return $usuario;
+            
+            
         }
-
     }

@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>Miniframework</title>
+		<title>Flash Will webSite</title>
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -16,8 +16,88 @@
 	</head>
 
 	<body>
+	<nav class="navbar navbar-expand-lg navbar-light shadow">
+  <a class="navbar-brand text-light" href="/">Barcelos and Will Portfolio |</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-light" href="#"> Sobre nós </a>
+        </li>
+        
+        <li class="nav-item active ">
+          <a class="nav-link text-light" href="#"> Contato </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav justify-content-end mr-0">
+          <li class="nav-item active float-right">
+
+
+		  <?php
+			error_reporting(0);
+		  
+		  	session_start();
+			if(!isset($_SESSION['loginOK'])){ ?>
+			
+			<button style="color:#530303" type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
+				Login
+			</button>
+			
+				<?php }else if($_SESSION['loginOK'] == 'OLOGINESTAOK'){
+					echo '<label class="text-light">'. $_SESSION['nome'] .'</label>';
+				}else{
+          echo 'error fatal';
+        }
+		 	
+			 	?>
+
+          </li>
+      </ul> 
+  </div>
+
+</nav>
+
 		<?= $this->content() ?>
 
+
+		<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title m-auto" id="exampleModalLabel">Área administrativa</div>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+
+        <form action="/autenticar" method="POST">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Login</label>
+            <input name="login" type="text" class="form-control" placeholder="Enter login">
+            <small class="form-text text-muted">This is edit area only. For contact, mail us.</small>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input name="senha" type="password" class="form-control" placeholder="Password">
+          </div>
+        
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-info">Entrar</button>
+      </form>
+      </div>
+
+
+    </div>
+  </div>
+</div>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

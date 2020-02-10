@@ -28,6 +28,38 @@ class Route extends Bootstrap {
 		);
 
 
+		$routes['cadastrar'] = array(
+			'route' => '/addProjeto',
+			'controller' => 'ProjetoController',
+			'action' => 'cadastrar'
+		);
+
+		$routes['recuperarProjetos'] = array(
+			'route' => '/projetos',
+			'controller' => 'ProjetoController',
+			'action' => 'index'
+		);
+
+		$routes['sair'] = array(
+			'route' => '/sair',
+			'controller' => 'LoginController',
+			'action' => 'sair'
+		);
+
+		$routes['cadastraradmin'] = array(
+			'route' => '/cdadm',
+			'controller' => 'LoginController',
+			'action' => 'cadastrar'
+		);
+
+		$routes['listarProjetos'] = array(
+			'route' => '/listar',
+			'controller' => 'ProjetoController',
+			'action' => 'index'
+		);
+
+
+
 		$routes['administration'] = array(
 			'route' => '/adm',
 			'controller' => 'LoginController',
