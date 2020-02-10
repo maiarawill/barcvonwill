@@ -1,0 +1,16 @@
+<?php 
+
+    foreach($this->view->dados as $indice => $valor){
+?>
+            
+            <img class="w-25 h-25" src="images/<?php echo $valor['id']; ?>.jpg "><br>
+            Titulo do projeto: <?= $valor['titulo']; ?><br>
+            Descricao do projeto: <?= $valor['descricao'] ?><br>
+            Tipo do projeto <?= $valor['tipo'] ?>    //deve ser colocado a innerjoin
+            <br> 
+           
+
+
+<?php
+    }
+?>
