@@ -20,7 +20,10 @@ class LoginController extends Action {
 		$usuario->__set('login', $_POST['login']);
 		$usuario->__set('senha', $_POST['senha']);
 		$retorno = $usuario->autenticar();
-		
+		$this->view->dados = $retorno['nome'];
+		session_start();
+		$_SESSION['loginOK'] = 'OLOGINESTAOK';
+		$this->render('panel');
 
 
 	}

@@ -41,7 +41,7 @@
         //autenticar
 
         public function autenticar(){
-            $query = "select id, nome, email, login, senha from usuarios where login = :login and senha = :senha ";
+            $query = "select nome from usuarios where login = :login and senha = :senha ";
             $stmt = $this->db->prepare($query);
             $stmt->bindValue(':login', $this->__get('login'));
             $stmt->bindValue(':senha', $this->__get('senha'));

@@ -16,6 +16,48 @@
 	</head>
 
 	<body>
+	<nav class="navbar navbar-expand-lg navbar-light shadow">
+  <a class="navbar-brand text-light" href="/">Barcelos and Will Portfolio |</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-light" href="#"> Sobre nós </a>
+        </li>
+        
+        <li class="nav-item active ">
+          <a class="nav-link text-light" href="#"> Contato </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav justify-content-end mr-0">
+          <li class="nav-item active float-right">
+
+
+		  <?php
+			error_reporting(0);
+		  
+		  	session_start();
+			if($_SESSION['loginOK'] != 'OLOGINESTAOK' || !isset($_SESSION['loginOK'])){ ?>
+			
+			<button style="color:#530303" type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
+				Login
+			</button>
+			
+				<?php }else{
+					echo '<label class="text-light">'. $this->view->dados .'</label>';
+				}
+		 	
+			 	?>
+
+          </li>
+      </ul> 
+  </div>
+
+</nav>
+
 		<?= $this->content() ?>
 
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
